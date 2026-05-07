@@ -1,13 +1,10 @@
 #include "ScalarConverter.hpp"
 
-		// ScalarConverter(/* args */);
-		// ScalarConverter(const ScalarConverter& original);
-		// ScalarConverter& operator=(const ScalarConverter& rhs);
-		// ~ScalarConverter();
+ScalarConverter::~ScalarConverter(){}
 
 bool	isChar(const std::string& s)
 {
-	if (s.size() == 1 && std::isalpha(s[0]))
+	if (s.length() == 1 && !std::isdigit(s[0]))
 		return (true);
 	// Optionally handle quotes: 'a'
 	if (s.size() == 3 && s.front() == '\'' && s.back() == '\'' && std::isprint(s[1]))
@@ -115,7 +112,8 @@ double	findValue(const std::string& input, int type)
 			value = input[0];
 			break;
 		case 1: // int
-			value = std::atoi(input.c_str());
+			// value = std::atoi(input.c_str());
+			value = std::strtol(input.c_str(), NULL, 10);
 			break;
 		case 2: // float
 			value = std::strtof(input.c_str(), NULL);
