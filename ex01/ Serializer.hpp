@@ -18,9 +18,9 @@ class  Serializer
 		Serializer();
 		Serializer(const Serializer& original);
 		Serializer& operator=(const Serializer& rhs);
-		~Serializer();
 
-		public:
+	public:
+		~Serializer();
 		static uintptr_t serialize(Data* ptr);
 		static Data* deserialize(uintptr_t raw);
 };
